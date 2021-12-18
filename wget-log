@@ -1,11 +1,0 @@
---2021-12-12 17:32:37--  https://www.chef.io/downloads/tools/download/workstation?download=https://packages.chef.io/files/stable/chef-workstation/21.11.679/debian/11/chef-workstation_21.11.679-1_amd64.deb
-Resolving www.chef.io (www.chef.io)... 184.106.1.4
-Connecting to www.chef.io (www.chef.io)|184.106.1.4|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 91610 (89K) [text/html]
-Saving to: ‘workstation?download=https:%2F%2Fpackages.chef.io%2Ffiles%2Fstable%2Fchef-workstation%2F21.11.679%2Fdebian%2F11%2Fchef-workstation_21.11.679-1_amd64.deb’
-
-          workstatio   0%[                    ]       0  --.-KB/s                        workstation  26%[====>               ]  23.46K  90.5KB/s                       workstation?  44%[=======>            ]  39.46K  68.5KB/s                      workstation?d  79%[==============>     ]  71.46K  85.6KB/s               workstation?download 100%[===================>]  89.46K   106KB/s    in 0.8s    
-
-2021-12-12 17:32:39 (106 KB/s) - ‘workstation?download=https:%2F%2Fpackages.chef.io%2Ffiles%2Fstable%2Fchef-workstation%2F21.11.679%2Fdebian%2F11%2Fchef-workstation_21.11.679-1_amd64.deb’ saved [91610/91610]
-
