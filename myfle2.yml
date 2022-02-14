@@ -1,0 +1,52 @@
+version: "3.3"
+
+services:
+    cassandra:
+        image: cassandra:latest
+        ports:
+            - "9042:9042"
+        restart: unless-stopped
+        volumes:
+            - hi:/home/cassandra:/var/lib/cassandra
+            - hi:/home/cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml
+        networks:
+            - internal
+
+    cassandra-init-data:
+        image: cassandra:latest
+        depends_on:
+            - cassandra
+        volumes:
+            - hi:/home/cassandra/schema.cql:/schema.cql
+        command: /bin/bash -c "sleep 60 && echo importing default data && cqlsh --username cassandra --password cassandra cassandra -f /schema.cql"
+        networks:
+            - internal
+
+    postgres:
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        restart: unless-stopped
+        volumes:
+            - hi:/home/postgres:/var/lib/postgresql/data
+        networks:
+            - internal
+    
+    rabbitmq:
+        image: rabbitmq:latest
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        restart: unless-stopped
+        networks:
+            - internal
+
+volumes:
+   hi:
+    driver : azure_file
+    driver_opts:
+      share_name: cloudshellfs
+      storage_account_name: cloudshellansuman
+      storage_account_key : ExlYLc5zUgkXi80HHrCkCYSCfBd0TXCmXmfr9cYbZIwZs35aA0Lk/ZkjQjtE5AlXxqu1tiW08opGr7ExoOAicw==            
+networks:
+    internal:
